@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         JS Cookie Monitor/Debugger Hook
-// @namespace    https://github.com/CC11001100/crawler-js-hook-framework-public
+// @namespace    https://github.com/CC11001100/js-cookie-monitor-debugger-hook
 // @version      0.9
 // @description  用于监控js对cookie的修改，或者在cookie符合给定条件时进入断点
-// @document   https://github.com/CC11001100/crawler-js-hook-framework-public/tree/master/001-cookie-hook
+// @document   https://github.com/CC11001100/js-cookie-monitor-debugger-hook
 // @author       CC11001100
 // @match       *://*/*
 // @run-at      document-start
@@ -12,7 +12,7 @@
 
 (() => {
 
-        // 使用文档： https://github.com/CC11001100/crawler-js-hook-framework-public/tree/master/001-cookie-hook
+        // 使用文档： https://github.com/CC11001100/js-cookie-monitor-debugger-hook
 
         // @since v0.6 断点规则发生了向后不兼容变化，详情请查阅文档
         const debuggerRules = [];
