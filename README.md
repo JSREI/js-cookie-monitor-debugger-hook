@@ -389,8 +389,12 @@ consoleLogFontSize
 
 # 八、其它 
 本项目拆分自：
-```text 
-https://github.com/CC11001100/crawler-js-hook-framework-public/tree/master/001-cookie-hook#%E7%9B%91%E6%8E%A7%E5%AE%9A%E4%BD%8Djavascript%E6%93%8D%E4%BD%9Ccookie
-```
 
+[https://github.com/CC11001100/crawler-js-hook-framework-public/tree/master/001-cookie-hook#%E7%9B%91%E6%8E%A7%E5%AE%9A%E4%BD%8Djavascript%E6%93%8D%E4%BD%9Ccookie](https://github.com/CC11001100/crawler-js-hook-framework-public/tree/master/001-cookie-hook#%E7%9B%91%E6%8E%A7%E5%AE%9A%E4%BD%8Djavascript%E6%93%8D%E4%BD%9Ccookie)
+
+
+
+更改了namespace，可能安装量要清零了，截图纪念下，截止到目前（2022-7-29 21:40:01）安装量破三百了，感觉对于这么窄领域的一个小工具来说很不容易了... 
+
+![image-20220729214105718](README.assets/image-20220729214105718.png)
 
