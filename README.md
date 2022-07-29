@@ -88,7 +88,7 @@
 
 如果您觉得自动更新太烦，或者有其它的顾虑，可以在这里复制本脚本的代码：
 
-[https://github.com/CC11001100/crawler-js-hook-framework-public/blob/master/001-cookie-hook/js-cookie-monitor-debugger-hook.js](https://github.com/CC11001100/crawler-js-hook-framework-public/blob/master/001-cookie-hook/js-cookie-monitor-debugger-hook.js)
+[https://github.com/CC11001100/js-cookie-monitor-debugger-hook/blob/main/js-cookie-monitor-debugger-hook.js](https://github.com/CC11001100/js-cookie-monitor-debugger-hook/blob/main/js-cookie-monitor-debugger-hook.js)
 
 review确认没问题之后在油猴的管理面板添加即可。
 
