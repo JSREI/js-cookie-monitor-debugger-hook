@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JS Cookie Monitor/Debugger Hook
 // @namespace    https://github.com/CC11001100/crawler-js-hook-framework-public
-// @version      0.8
+// @version      0.9
 // @description  用于监控js对cookie的修改，或者在cookie符合给定条件时进入断点
 // @document   https://github.com/CC11001100/crawler-js-hook-framework-public/tree/master/001-cookie-hook
 // @author       CC11001100
@@ -252,19 +252,38 @@
         function parseSetCookie(cookieString) {
             // uuid_tt_dd=10_37476713480-1609821005397-659114; Expires=Thu, 01 Jan 1025 00:00:00 GMT; Path=/; Domain=.csdn.net;
             const cookieStringSplit = cookieString.split(";");
-            const cookieNameValueArray = cookieStringSplit[0].split("=", 2);
-            const cookieName = decodeURIComponent(cookieNameValueArray[0].trim());
-            const cookieValue = cookieNameValueArray.length > 1 ? decodeURIComponent(cookieNameValueArray[1].trim()) : "";
+            const {key, value} = splitKeyValue(cookieStringSplit.length && cookieStringSplit[0])
             const map = new Map();
             for (let i = 1; i < cookieStringSplit.length; i++) {
-                const ss = cookieStringSplit[i].split("=", 2);
-                const key = ss[0].trim().toLowerCase();
-                const value = ss.length > 1 ? ss[1].trim() : "";
-                map.set(key, value);
+                let {key, value} = splitKeyValue(cookieStringSplit[i]);
+                map.set(key.toLowerCase(), value);
             }
             // 当不设置expires的时候关闭浏览器就过期
             const expires = map.get("expires");
-            return new CookiePair(cookieName, cookieValue, expires ? new Date(expires).getTime() : null)
+            return new CookiePair(key, value, expires ? new Date(expires).getTime() : null)
+        }
+
+        /**
+         * 把按照等号=拼接的key、value字符串切分开
+         * @param s
+         * @returns {{value: string, key: string}}
+         */
+        function splitKeyValue(s) {
+            let key = "", value = "";
+            const keyValueArray = (s || "").split("=");
+
+            if (keyValueArray.length) {
+                key = decodeURIComponent(keyValueArray[0].trim());
+            }
+
+            if (keyValueArray.length > 1) {
+                value = decodeURIComponent(keyValueArray.slice(1).join("=").trim());
+            }
+
+            return {
+                key,
+                value
+            }
         }
 
         /**
@@ -278,9 +297,7 @@
                 return cookieMap;
             }
             document.cookie.split(";").forEach(x => {
-                const ss = x.split("=", 2);
-                const key = decodeURIComponent(ss[0].trim());
-                const value = ss.length > 1 ? decodeURIComponent(ss[1].trim()) : "";
+                const {key, value} = splitKeyValue(x);
                 cookieMap.set(key, new CookiePair(key, value));
             });
             return cookieMap;
