@@ -387,3 +387,10 @@ consoleLogFontSize
 设置了Cookie并且立刻就重定向到了新的页面，对于这种操作，有可能会Hook不到，这是油猴脚本的问题，如果坚持要Hook， 可以采用挂代理将本脚本注入到这个URL的响应的头部。
 
 
+# 八、其它 
+本项目拆分自：
+```text 
+https://github.com/CC11001100/crawler-js-hook-framework-public/tree/master/001-cookie-hook#%E7%9B%91%E6%8E%A7%E5%AE%9A%E4%BD%8Djavascript%E6%93%8D%E4%BD%9Ccookie
+```
+
+
