@@ -9,12 +9,12 @@
 <script src="../js-cookie-monitor-debugger-hook.js"></script>
 <script type="text/javascript">
 
-    document.cookie = "foo=第一次设置; path=/; expires=Wed, 26 Jul 2023 14:10:04 GMT; secure; HttpOnly; SameSite=Lax";
+    document.cookie = "foo=first set; path=/; expires=Wed, 26 Jul 2028 14:10:04 GMT; secure; HttpOnly; SameSite=Lax";
 
     Object.defineProperties(document, {
         "cookie": {
             get: () => {
-                console.log("获取了cookie");
+                console.log("获取了cookie： " + document.cookie);
                 return document.cookie;
             },
             set: newValue => {
@@ -26,7 +26,7 @@
         }
     });
 
-    document.cookie = "foo=第二次设置; path=/; expires=Wed, 26 Jul 2023 14:10:04 GMT; secure; HttpOnly; SameSite=Lax";
+    document.cookie = "foo=second; path=/; expires=Wed, 26 Jul 2028 14:10:04 GMT; secure; HttpOnly; SameSite=Lax";
 
 </script>
 </body>

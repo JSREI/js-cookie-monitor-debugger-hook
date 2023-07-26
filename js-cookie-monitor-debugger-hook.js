@@ -43,14 +43,10 @@
 
             // 把Object.defineProperty给拦截了
             Object.defineProperty = new Proxy(Object.defineProperty, {
-                apply(target, thisArg, argArray) {
+                apply: function (target, thisArg, argArray) {
 
                     // 检查是否是自己调用的
-                    const isMe = argArray && argArray.length >= 4 && argArray[3] === definePropertyIsMe;
-                    if (isMe) {
-                        // 把多余的参数删除掉
-                        argArray.pop();
-                    }
+                    const isMe = argArray && argArray.length >= 3 && argArray[2] && definePropertyIsMe in argArray[2];
 
                     // 检查是否是定义的document.cookie
                     const isDocumentCookie = argArray && argArray.length >= 2 && argArray[0] === document && "cookie" === argArray[1];
@@ -73,7 +69,7 @@
 
             // 把Object.defineProperties也给拦截了
             Object.defineProperties = new Proxy(Object.defineProperties, {
-                apply(target, thisArg, argArray) {
+                apply: function (target, thisArg, argArray) {
                     // 可能会通过如下代码来调用：
                     // Object.defineProperties(document, {"cookie": {...})
                     const isDocumentCookie = argArray && argArray.length >= 2 && document === argArray[0] && "cookie" in argArray[1];
@@ -100,7 +96,7 @@
 
         // 此处实现的反复hook，保证页面流程能够继续往下走下去
         (function addCookieHook() {
-            Object.defineProperty(document, "cookie", {
+            const handler = {
                 get: () => {
 
                     // 先恢复原状
@@ -145,7 +141,9 @@
                     }
 
                 }, configurable: true, enumerable: false,
-            }, definePropertyIsMe);
+            };
+            handler[definePropertyIsMe] = true;
+            Object.defineProperty(document, "cookie", handler);
         })();
 
         /**
