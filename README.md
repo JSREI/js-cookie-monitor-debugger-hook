@@ -6,8 +6,7 @@
 
 数据无价的时代，爬虫与反爬的对抗已经进入白热化状态，其中Cookie反爬是`最常见之一`的反爬类型， 网站方通过混淆得亲妈都不认识的JS代码设置Cookie（通常是浏览器指纹、请求时必须带上的Cookie之类的），
 面对请求时必须要带上但是又不知道在哪里生成的Cookie， 你在几万行混淆的亲妈都不认识的JS屎海中苦苦挣扎希望能找到生成Cookie的地方（要是逆向思路不科学兴许还会呛上几口...），
-甚至几度想找个借口骗自己放弃，或者要不干脆用Selenium之类的浏览器模拟方式算了？ 怂个球，此脚本就是来助你一臂之力的！
-（你我都知道，这段只是撑场面的废话，你可以略过，如果你没有不幸读完的话...）
+甚至几度想找个借口骗自己放弃，或者要不干脆用Selenium之类的浏览器模拟方式算了？ 怂个球，此脚本就是来助你一臂之力的！ （你我都知道，这段只是撑场面的废话，你可以略过，如果你没有不幸读完的话...）
 
 ### 脚本功能
 
@@ -88,7 +87,7 @@
 
 如果您觉得自动更新太烦，或者有其它的顾虑，可以在这里复制本脚本的代码：
 
-[https://github.com/CC11001100/crawler-js-hook-framework-public/blob/master/001-cookie-hook/js-cookie-monitor-debugger-hook.js](https://github.com/CC11001100/crawler-js-hook-framework-public/blob/master/001-cookie-hook/js-cookie-monitor-debugger-hook.js)
+[https://github.com/CC11001100/js-cookie-monitor-debugger-hook/blob/main/js-cookie-monitor-debugger-hook.js](https://github.com/CC11001100/js-cookie-monitor-debugger-hook/blob/main/js-cookie-monitor-debugger-hook.js)
 
 review确认没问题之后在油猴的管理面板添加即可。
 
@@ -154,8 +153,7 @@ debuggerRules
 
 这个变量是一个数组类型，里面存放着一些规则条件，来决定什么情况下会进入断点。
 
-注意，这是一个数组，数组中的规则是或的关系，触发Cookie修改事件时，
-会顺序匹配每条规则， 只要有一条规则匹配成功就会进入一次断点。
+注意，这是一个数组，数组中的规则是或的关系，触发Cookie修改事件时， 会顺序匹配每条规则， 只要有一条规则匹配成功就会进入一次断点。
 
 ### 5.2 常用配置方式（简化的配置规则）
 
@@ -191,28 +189,21 @@ const debuggerRules = [/foo.+/];
 
 ![](images/README_images/5415caa1.png)
 
-修改完`debuggerRules`数组要注意按Ctrl+S保存脚本，然后因为油猴是在页面加载的时候注入JS代码的，
-所以要刷新页面重新注入，当刷新页面的时候就自动进入了断点：
+修改完`debuggerRules`数组要注意按Ctrl+S保存脚本，然后因为油猴是在页面加载的时候注入JS代码的， 所以要刷新页面重新注入，当刷新页面的时候就自动进入了断点：
 
 ![](images/README_images/47c3b465.png)
 
-上图的红色框A中是专门传进来的一些变量，通过将鼠标移动到这些变量上查看值，
-我们能够大概知道当前断点的一些情况：
+上图的红色框A中是专门传进来的一些变量，通过将鼠标移动到这些变量上查看值， 我们能够大概知道当前断点的一些情况：
 
 ![](images/README_images/0cf06995.png)
 
-然后就是红色框B，我们打Cookie断点就是为了追踪调用栈定位生成Cookie的地方，
-红色方框内是本脚本的调用栈，有很明显的`userscript.html`标识，
-忽略此部分的调用栈即可。
+然后就是红色框B，我们打Cookie断点就是为了追踪调用栈定位生成Cookie的地方， 红色方框内是本脚本的调用栈，有很明显的`userscript.html`标识， 忽略此部分的调用栈即可。
 
 然后追溯调用栈，能够看到设置Cookie的地方：
 
 ![](images/README_images/33dc63f1.png)
 
-当然看这个栈对我们没用，我们要做的就是逐步往前定位，
-直到定位到真正生成Cookie的地方，但是呢，本脚本只能帮你打个断点，
-后面星辰大海的征程就要靠你自己啦！ 
-
+当然看这个栈对我们没用，我们要做的就是逐步往前定位， 直到定位到真正生成Cookie的地方，但是呢，本脚本只能帮你打个断点， 后面星辰大海的征程就要靠你自己啦！
 
 #### 5.2.2 Cookie名字和事件结合
 
@@ -283,8 +274,7 @@ Cookie发生了变化细分为增加Cookie、删除Cookie、更新已有的Cooki
 
 #### 增加Cookie事件
 
-Cookie之前在本地不存在，这是第一次添加。 有可能是第一次访问这个网站
-，也有可能是清除了Cookie重新访问，或者是每次访问网站都会生成新的Cookie，
+Cookie之前在本地不存在，这是第一次添加。 有可能是第一次访问这个网站 ，也有可能是清除了Cookie重新访问，或者是每次访问网站都会生成新的Cookie，
 甚至可能是网站自己的代码把Cookie删了重新添加，这都会触发增加Cookie事件。
 
 比如执行下面的代码，这里为了保证Cookie之前不存在，在cookie的名字中加了时间戳：
@@ -297,23 +287,20 @@ document.cookie = "foo_" + new Date().getTime() + "=bar; expires=Fri, 31 Dec 999
 
 ![](images/README_images/10ea2db6.png)
 
-
 #### 更新Cookie事件
 
 当一个Cookie在本地已经存在，然后又尝试为它设置值，就会触发更新Cookie事件。
 
 比如下面的代码：
+
 ```js
 document.cookie = "foo_10086=blabla; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
 document.cookie = "foo_10086=wuawua; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
 ```
 
-第一条设置Cookie的语句会触发Cookie新增事件，
-第二条设置Cookie的语句因为要设置的Cookie已经存在了，
-所以触发了Cookie更新事件。 
+第一条设置Cookie的语句会触发Cookie新增事件， 第二条设置Cookie的语句因为要设置的Cookie已经存在了， 所以触发了Cookie更新事件。
 
 ![](images/README_images/fa06f80c.png)
-
 
 #### 删除Cookie事件
 
@@ -328,9 +315,7 @@ document.cookie = "foo=; expires=" + expires + "; path=/"
 
 ![](images/README_images/35720fae.png)
 
-由上面也可以看出来，触发Cookie删除事件纯粹是检测expires，
-并不会真的去检查这个Cookie之前是否存在。 
-
+由上面也可以看出来，触发Cookie删除事件纯粹是检测expires， 并不会真的去检查这个Cookie之前是否存在。
 
 ### 5.5 控制事件类型断点是否开启的标志位
 
@@ -386,14 +371,21 @@ consoleLogFontSize
 
 设置了Cookie并且立刻就重定向到了新的页面，对于这种操作，有可能会Hook不到，这是油猴脚本的问题，如果坚持要Hook， 可以采用挂代理将本脚本注入到这个URL的响应的头部。
 
+# 八、实战示例
 
-# 八、其它 
+此页面下是一些使用此脚本逆向的实战例子汇总：  
+[点我进入导航页](docs)
+
+# 九、其它
+
 本项目拆分自：
-```text 
-https://github.com/CC11001100/crawler-js-hook-framework-public/tree/master/001-cookie-hook#%E7%9B%91%E6%8E%A7%E5%AE%9A%E4%BD%8Djavascript%E6%93%8D%E4%BD%9Ccookie
-```
+[https://github.com/CC11001100/crawler-js-hook-framework-public/tree/master/001-cookie-hook#%E7%9B%91%E6%8E%A7%E5%AE%9A%E4%BD%8Djavascript%E6%93%8D%E4%BD%9Ccookie](https://github.com/CC11001100/crawler-js-hook-framework-public/tree/master/001-cookie-hook#%E7%9B%91%E6%8E%A7%E5%AE%9A%E4%BD%8Djavascript%E6%93%8D%E4%BD%9Ccookie)
 
-# 九、感谢支持 
+更改了namespace，可能安装量要清零了，截图纪念下，截止到目前（2022-7-29 21:40:01）安装量破三百了，感觉对于这么窄领域的一个小工具来说很不容易了...
+
+![image-20220729214105718](README.assets/image-20220729214105718.png)
+
+# 十、感谢支持 
 感谢热心网友反馈问题，谢谢支持。
 
 <div>
@@ -415,8 +407,4 @@ https://github.com/CC11001100/crawler-js-hook-framework-public/tree/master/001-c
         </li>
     </ul>    
 </div>
-
-
-
-
 
