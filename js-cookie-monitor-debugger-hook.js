@@ -67,6 +67,10 @@
                 }
             });
 
+            Object.defineProperty.toString = function () {
+                return "function defineProperty() { [native code] }";
+            }
+
             // 把Object.defineProperties也给拦截了
             Object.defineProperties = new Proxy(Object.defineProperties, {
                 apply(target, thisArg, argArray) {
@@ -87,6 +91,10 @@
                     return target.apply(thisArg, argArray);
                 }
             });
+
+            Object.defineProperties.toString = function () {
+                return "function defineProperties() { [native code] }";
+            }
 
         })();
 
