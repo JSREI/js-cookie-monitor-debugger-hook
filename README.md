@@ -379,10 +379,32 @@ consoleLogFontSize
 # 九、其它
 
 本项目拆分自：
-
 [https://github.com/CC11001100/crawler-js-hook-framework-public/tree/master/001-cookie-hook#%E7%9B%91%E6%8E%A7%E5%AE%9A%E4%BD%8Djavascript%E6%93%8D%E4%BD%9Ccookie](https://github.com/CC11001100/crawler-js-hook-framework-public/tree/master/001-cookie-hook#%E7%9B%91%E6%8E%A7%E5%AE%9A%E4%BD%8Djavascript%E6%93%8D%E4%BD%9Ccookie)
 
 更改了namespace，可能安装量要清零了，截图纪念下，截止到目前（2022-7-29 21:40:01）安装量破三百了，感觉对于这么窄领域的一个小工具来说很不容易了...
 
 ![image-20220729214105718](README.assets/image-20220729214105718.png)
+
+# 十、感谢支持 
+感谢热心网友反馈问题，谢谢支持。
+
+<div>
+    <ul style="list-style: none; outside: none; margin:0px; padding: 0px;">
+        <li style="float: left; margin: 0 10px;">
+            <a href="https://github.com/CC11001100">
+                <img src="https://avatars.githubusercontent.com/u/12819457?v=4" style="width: 100px; border-radius: 100px;"/><br/>CC11001100
+            </a>
+        </li>
+        <li style="float: left; margin: 0 10px;">
+            <a href="https://github.com/chenstrace">
+                <img src="https://avatars.githubusercontent.com/u/16367987?v=4" style="width: 100px; border-radius: 100px;"/><br/>chenstrace
+            </a>
+        </li>
+        <li style="float: left; margin: 0 10px;">
+            <a href="https://github.com/llfer2006">
+                <img src="https://avatars.githubusercontent.com/u/1904451?v=4" style="width: 100px; border-radius: 100px;"/><br/>llfer2006
+            </a>
+        </li>
+    </ul>    
+</div>
 
