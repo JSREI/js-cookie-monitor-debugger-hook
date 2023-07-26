@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面中有自定义的cookie的property</title>
+</head>
+<body>
+
+<script src="../js-cookie-monitor-debugger-hook.js"></script>
+<script type="text/javascript">
+
+    document.cookie = "foo=第一次设置; path=/; expires=Wed, 26 Jul 2023 14:10:04 GMT; secure; HttpOnly; SameSite=Lax";
+
+    Object.defineProperty(document, "cookie", {
+        get: () => {
+            console.log("获取了cookie");
+            return document.cookie;
+        },
+        set: newValue => {
+            console.log("设置了新的cookie: " + newValue);
+            document.cookie = newValue;
+        },
+        configurable: true,
+        enumerable: false,
+        writable: true,
+    });
+
+    document.cookie = "foo=第二次设置; path=/; expires=Wed, 26 Jul 2023 14:10:04 GMT; secure; HttpOnly; SameSite=Lax";
+
+</script>
+</body>
+</html>
