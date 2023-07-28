@@ -112,7 +112,7 @@ function init() {
     let realDocumentCookieProperty = null;
 
     // 用于区分是本插件自己调用的definePropertyIsMe还是外部调用的
-    const definePropertyIsMe = "CC11001100-js-cookie-monitor-debugger-hook";
+    const definePropertyIsMe = Symbol("definePropertyIsMe");
 
     // 页面内部的Object.defineProperty需要能够劫持一下
     (function () {
