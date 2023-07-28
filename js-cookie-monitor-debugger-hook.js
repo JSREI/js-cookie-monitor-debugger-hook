@@ -75,6 +75,7 @@ GM_config.init({
 
 function init() {
     // 对于无法用单纯文本表示的规则，手动改这里吧
+    // TODO: 尝试别的表达方式？
     const additionalDebuggerRules = [];
     // example:
     // const additionalDebuggerRules = [{add: {name: "token"}}];
