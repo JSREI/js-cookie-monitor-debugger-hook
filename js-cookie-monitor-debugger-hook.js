@@ -74,14 +74,19 @@ GM_config.init({
 });
 
 function init() {
+    // 对于无法用单纯文本表示的规则，手动改这里吧
+    const additionalDebuggerRules = [];
     // @since v0.6 断点规则发生了向后不兼容变化，详情请查阅文档
-    const debuggerRules = GM_config.get("EventDebugger.rules").split('\n').flatMap(x => {
-        const striped = x.trim();
-        if (striped) return [];
-        const matched = striped.match(/^\/(.*)\/$/);
-        if (matched) return new RegExp(matched[1]);
-        return striped;
-    });
+    const debuggerRules = [
+        ...GM_config.get("EventDebugger.rules").split('\n').flatMap(x => {
+            const striped = x.trim();
+            if (striped) return [];
+            const matched = striped.match(/^\/(.*)\/$/);
+            if (matched) return new RegExp(matched[1]);
+            return striped;
+        }),
+        ...additionalDebuggerRules
+    ];
     // example:
     // const debuggerRules = ["foo", /foo_\d+/];
 
