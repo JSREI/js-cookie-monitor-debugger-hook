@@ -76,6 +76,8 @@ GM_config.init({
 function init() {
     // 对于无法用单纯文本表示的规则，手动改这里吧
     const additionalDebuggerRules = [];
+    // example:
+    // const additionalDebuggerRules = [{add: {name: "token"}}];
     // @since v0.6 断点规则发生了向后不兼容变化，详情请查阅文档
     const debuggerRules = [
         ...GM_config.get("EventDebugger.rules").split('\n').flatMap(x => {
@@ -87,8 +89,6 @@ function init() {
         }),
         ...additionalDebuggerRules
     ];
-    // example:
-    // const debuggerRules = ["foo", /foo_\d+/];
 
     // 设置事件断点是否开启，一般保持默认即可
     const enableEventDebugger = {
