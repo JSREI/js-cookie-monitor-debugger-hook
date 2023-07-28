@@ -11,7 +11,9 @@
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_registerMenuCommand
-// @grant        GM_unregisterMenuCommand
+// @grant        GM.getValue
+// @grant        GM.setValuex
+// @grant        GM.registerMenuCommand
 // ==/UserScript==
 
 
