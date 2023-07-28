@@ -358,7 +358,6 @@ function init() {
             hour12: false,
             fractionalSecondDigits: 3
         });
-        // 东八区专属...
         return `[${localeTime}] `;
     }
 
