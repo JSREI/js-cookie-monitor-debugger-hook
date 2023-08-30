@@ -391,11 +391,6 @@ consoleLogFontSize
 <div>
     <ul style="list-style: none; outside: none; margin:0px; padding: 0px;">
         <li style="float: left; margin: 0 10px;">
-            <a href="https://github.com/CC11001100">
-                <img src="https://avatars.githubusercontent.com/u/12819457?v=4" style="width: 100px; border-radius: 100px;"/><br/>CC11001100
-            </a>
-        </li>
-        <li style="float: left; margin: 0 10px;">
             <a href="https://github.com/chenstrace">
                 <img src="https://avatars.githubusercontent.com/u/16367987?v=4" style="width: 100px; border-radius: 100px;"/><br/>chenstrace
             </a>
