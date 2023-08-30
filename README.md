@@ -408,3 +408,26 @@ consoleLogFontSize
     </ul>    
 </div>
 
+# 十一、Contributions
+
+<div>
+    <ul style="list-style: none; outside: none; margin:0px; padding: 0px;">
+        <li style="float: left; margin: 0 10px;">
+            <a href="https://github.com/codehz">
+                <img src="https://avatars.githubusercontent.com/u/13158903?v=4" style="width: 100px; border-radius: 100px;"/><br/>codehz
+            </a>
+        </li>
+        <li style="float: left; margin: 0 10px;">
+            <a href="https://github.com/CC11001100">
+                <img src="https://avatars.githubusercontent.com/u/12819457?v=4" style="width: 100px; border-radius: 100px;"/><br/>CC11001100
+            </a>
+        </li>
+    </ul>    
+</div>
+
+
+# 十二、404星链计划
+<img src lazysrc="https://github.com/knownsec/404StarLink-Project/raw/master/logo.png" width="30%">
+
+js-cookie-monitor-debugger-hook 现已加入 [404星链计划](https://github.com/knownsec/404StarLink)
+
