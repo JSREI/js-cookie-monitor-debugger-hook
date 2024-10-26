@@ -1,5 +1,13 @@
 # 监控、定位JavaScript操作cookie
 
+GitHub Repository: https://github.com/JSREI/js-cookie-monitor-debugger-hook
+
+简体中文 | [English](./README_en.md)
+
+![GitHub Created At](https://img.shields.io/github/created-at/JSREI/js-cookie-monitor-debugger-hook)  ![GitHub contributors](https://img.shields.io/github/contributors-anon/JSREI/js-cookie-monitor-debugger-hook)  ![GitHub top language](https://img.shields.io/github/languages/top/JSREI/js-cookie-monitor-debugger-hook)  ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/JSREI/js-cookie-monitor-debugger-hook)  ![GitHub Release](https://img.shields.io/github/v/release/JSREI/js-cookie-monitor-debugger-hook)  ![Greasy Fork Downloads](https://img.shields.io/greasyfork/dt/419781)  ![Greasy Fork Rating](https://img.shields.io/greasyfork/rating-count/419781) ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/JSREI/js-cookie-monitor-debugger-hook)  ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues-pr/JSREI/js-cookie-monitor-debugger-hook)  ![GitHub License](https://img.shields.io/github/license/JSREI/js-cookie-monitor-debugger-hook)  ![GitHub Repo stars](https://img.shields.io/github/stars/JSREI/js-cookie-monitor-debugger-hook)  ![GitHub forks](https://img.shields.io/github/forks/JSREI/js-cookie-monitor-debugger-hook)  ![GitHub watchers](https://img.shields.io/github/watchers/JSREI/js-cookie-monitor-debugger-hook)  
+
+![Snipaste_2024-10-26_18-13-07](./README.assets/Snipaste_2024-10-26_18-13-07.png)
+
 ## 一、脚本说明
 
 ### 为什么会有这个东西？
@@ -403,26 +411,38 @@ consoleLogFontSize
     </ul>    
 </div>
 
-# 十一、Contributions
-
-<div>
-    <ul style="list-style: none; outside: none; margin:0px; padding: 0px;">
-        <li style="float: left; margin: 0 10px;">
-            <a href="https://github.com/codehz">
-                <img src="https://avatars.githubusercontent.com/u/13158903?v=4" style="width: 100px; border-radius: 100px;"/><br/>codehz
-            </a>
-        </li>
-        <li style="float: left; margin: 0 10px;">
-            <a href="https://github.com/CC11001100">
-                <img src="https://avatars.githubusercontent.com/u/12819457?v=4" style="width: 100px; border-radius: 100px;"/><br/>CC11001100
-            </a>
-        </li>
-    </ul>    
-</div>
 
 
-# 十二、404星链计划
+
+
+
+
+
+# 十一、Contributors
+
+<img src="https://contrib.nn.ci/api?repo=JSREI/jQuery-hook" />
+
+# 十二、Star History
+
+<img src="https://starchart.cc/JSREI/jQuery-hook.svg" />
+
+
+# 十三、404星链计划
 <img lazysrc="https://github.com/knownsec/404StarLink-Project/raw/master/logo.png" src="https://github.com/knownsec/404StarLink-Project/raw/master/logo.png" width="30%">
 
 js-cookie-monitor-debugger-hook 现已加入 [404星链计划](https://github.com/knownsec/404StarLink)
+
+# 十四、逆向技术交流群
+
+扫码加入逆向技术交流群：
+
+<img src="https://github.com/JSREI/.github/raw/main/profile/README.assets/image-20241016230653669.png" style="width: 200px">
+
+如群二维码过期，可以加我个人微信，发送【逆向群】拉你进群：
+
+<img src="https://github.com/JSREI/.github/raw/main/profile/README.assets/image-20231030132026541-7614065.png" style="width: 200px">
+
+[点此](https://t.me/jsreijsrei)或扫码加入TG交流群：
+
+<img src="https://github.com/JSREI/.github/raw/main/profile/README.assets/image-20241016231143315.png" style="width: 200px">
 
