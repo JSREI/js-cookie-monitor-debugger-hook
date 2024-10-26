@@ -420,11 +420,11 @@ consoleLogFontSize
 
 # 十一、Contributors
 
-<img src="https://contrib.nn.ci/api?repo=JSREI/jQuery-hook" />
+<img src="https://contrib.nn.ci/api?repo=JSREI/js-cookie-monitor-debugger-hook" />
 
 # 十二、Star History
 
-<img src="https://starchart.cc/JSREI/jQuery-hook.svg" />
+<img src="https://starchart.cc/JSREI/js-cookie-monitor-debugger-hook.svg" />
 
 
 # 十三、404星链计划
