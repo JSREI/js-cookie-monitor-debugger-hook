@@ -1,3 +1,93 @@
+# JS Cookie Monitor/Debugger Hook (TypeScript版本)
+
+这是一个用于监控JavaScript对Cookie操作的工具，同时也支持在Cookie符合特定条件时进入断点进行调试。本项目是原[JS Cookie Monitor/Debugger Hook](https://github.com/CC11001100/js-cookie-monitor-debugger-hook)的TypeScript重构版本。
+
+## 功能特点
+
+1. 实时监控JavaScript对Cookie的添加、修改和删除操作
+2. 在浏览器控制台中以醒目的颜色显示Cookie操作
+3. 支持根据Cookie名称或值设置断点条件
+4. 支持在特定Cookie事件（添加、修改、删除、读取）时触发断点
+5. 提供TypeScript类型支持，提高开发体验和代码质量
+
+## 开发与构建
+
+### 安装依赖
+
+```bash
+npm install
+```
+
+### 开发模式
+
+```bash
+npm run watch
+```
+
+此命令会启动开发服务器并在代码变更时自动重新编译。
+
+### 生产构建
+
+```bash
+npm run build
+```
+
+此命令会生成压缩优化后的脚本，通常用于发布。
+
+## 使用方法
+
+### 基本使用
+
+在浏览器中安装用户脚本扩展（如Tampermonkey），然后安装构建生成的脚本。当JavaScript代码操作Cookie时，控制台会以不同颜色显示相关信息：
+
+- 绿色：添加Cookie
+- 橙色：修改Cookie
+- 红色：删除Cookie
+
+### 断点调试
+
+可以在脚本中设置断点规则，当Cookie操作符合特定条件时，脚本会自动进入断点，方便开发者进行调试：
+
+```typescript
+// 示例：匹配名称为"foo"的Cookie
+const debuggerRules = ["foo"];
+
+// 示例：使用正则表达式匹配名称格式为"foo_数字"的Cookie
+const debuggerRules = [/foo_\d+/];
+
+// 示例：更复杂的规则配置
+const debuggerRules = [
+  // 当名为"sessionId"的Cookie被添加时触发断点
+  { event: "add", name: "sessionId" },
+  
+  // 当任何包含"token"的Cookie被修改时触发断点
+  { event: "update", name: /token/ },
+  
+  // 当Cookie值包含"admin"字样时触发断点
+  { value: /admin/ }
+];
+```
+
+## 安装
+
+### 1. 安装Tampermonkey浏览器插件
+
+首先安装[Tampermonkey](https://www.tampermonkey.net/)浏览器扩展：
+- [Chrome商店](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+- [Firefox商店](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
+
+### 2. 安装本用户脚本
+
+构建项目后，在浏览器中打开dist目录下生成的.user.js文件，Tampermonkey会提示安装。
+
+## 许可证
+
+MIT
+
+## 致谢
+
+感谢原项目作者[CC11001100](https://github.com/CC11001100)的贡献。
+
 # 监控、定位JavaScript操作cookie
 
 GitHub Repository: https://github.com/JSREI/js-cookie-monitor-debugger-hook
@@ -77,7 +167,7 @@ GitHub Repository: https://github.com/JSREI/js-cookie-monitor-debugger-hook
 
 [https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
 
-如果无法翻墙，可以在百度搜索“Tampermonkey”字样寻找第三方网站下载，但请注意不要安装了虚假的恶意插件，推荐从官方商店安装。
+如果无法翻墙，可以在百度搜索"Tampermonkey"字样寻找第三方网站下载，但请注意不要安装了虚假的恶意插件，推荐从官方商店安装。
 
 其它工具亦可，只要能够将本脚本的JS代码注入到页面最头部执行即可。
 
