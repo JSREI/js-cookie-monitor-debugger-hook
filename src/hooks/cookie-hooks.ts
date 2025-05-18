@@ -1,5 +1,5 @@
 import { CustomPropertyDescriptor } from '../types';
-import { definePropertyIsMe, getRealDocumentCookieProperty } from '../core/config';
+import { definePropertyIsMe, getRealDocumentCookieProperty } from '../cookie-monitor/config';
 import { cc11001100_onSetCookie } from '../events/handlers';
 
 /**

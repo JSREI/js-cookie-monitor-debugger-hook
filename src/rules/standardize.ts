@@ -1,5 +1,5 @@
 import { DebuggerRule } from '../models';
-import { debuggerRules, getConsoleLogFontSize } from '../core/config';
+import { debuggerRules, getConsoleLogFontSize } from '../cookie-monitor/config';
 import { now } from '../utils';
 
 /**

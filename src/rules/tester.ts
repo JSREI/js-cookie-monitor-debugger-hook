@@ -1,4 +1,4 @@
-import { debuggerRules } from '../core/config';
+import { debuggerRules } from '../cookie-monitor/config';
 
 /**
  * 当断点停在这里时查看这个方法各个参数的值能够大致了解断点情况

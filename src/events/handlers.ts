@@ -1,4 +1,4 @@
-import { getConsoleLogFontSize, getIgnoreUpdateButNotChanged } from '../core/config';
+import { getConsoleLogFontSize, getIgnoreUpdateButNotChanged } from '../cookie-monitor/config';
 import { testDebuggerRules } from '../rules/tester';
 import { genFormatArray, getCodeLocation, now } from '../utils';
 import { getCurrentCookieMap, parseSetCookie } from './parser';

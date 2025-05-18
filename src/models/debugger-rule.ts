@@ -1,5 +1,5 @@
 import { DebuggerRuleType } from '../types';
-import { getEventDebuggerConfig } from '../core/config';
+import { getEventDebuggerConfig } from '../cookie-monitor/config';
 
 export class DebuggerRule implements DebuggerRuleType {
     private eventName: string | null;

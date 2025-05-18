@@ -1,4 +1,4 @@
-import { definePropertyIsMe, getRealDocumentCookieProperty, setRealDocumentCookieProperty } from '../core/config';
+import { definePropertyIsMe, getRealDocumentCookieProperty, setRealDocumentCookieProperty } from '../cookie-monitor/config';
 
 /**
  * 安装属性钩子
