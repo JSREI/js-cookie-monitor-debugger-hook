@@ -1,0 +1,24 @@
+{
+  "name": "js-cookie-monitor-debugger-hook",
+  "version": "0.11",
+  "description": "用于监控js对cookie的修改，或者在cookie符合给定条件时进入断点",
+  "main": "index.js",
+  "repository": "https://github.com/CC11001100/js-cookie-monitor-debugger-hook.git",
+  "namespace": "https://github.com/CC11001100/js-cookie-monitor-debugger-hook",
+  "document": "https://github.com/CC11001100/js-cookie-monitor-debugger-hook",
+  "scripts": {
+    "build": "webpack --config webpack.prod.js",
+    "watch": "webpack --watch --config webpack.dev.js"
+  },
+  "author": "CC11001100 <CC11001100@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "@types/webpack": "^5.28.5",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.7.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-merge": "^5.9.0"
+  }
+}
