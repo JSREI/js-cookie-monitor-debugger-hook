@@ -1,4 +1,5 @@
 import { EventDebuggerConfig } from '../types';
+import logger from '../logger/logger';
 
 // @ts-ignore - 为与原JS版本保持一致，忽略类型检查
 export const debuggerRules: Array<any> = [];
@@ -23,6 +24,14 @@ let realDocumentCookieProperty: PropertyDescriptor | null = null;
 
 // 用于区分是本插件自己调用的definePropertyIsMe还是外部调用的
 export const definePropertyIsMe = "CC11001100-js-cookie-monitor-debugger-hook";
+
+// 初始化日志配置
+export function initLoggerConfig(): void {
+    logger.setConfig({
+        fontSize: consoleLogFontSize,
+        prefix: 'JS Cookie Monitor:'
+    });
+}
 
 // 导出获取配置的函数
 export function getEventDebuggerConfig(): EventDebuggerConfig {

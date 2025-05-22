@@ -1,5 +1,6 @@
 import { installPropertyHooks, installCookieHooks } from '../hooks';
 import { standardizingRules } from '../rules';
+import { initLoggerConfig } from './config';
 
 /**
  * 初始化Cookie监控器
@@ -7,6 +8,9 @@ import { standardizingRules } from '../rules';
  */
 export function initCookieMonitor(): void {
     // 使用文档： https://github.com/CC11001100/js-cookie-monitor-debugger-hook
+
+    // 初始化日志配置
+    initLoggerConfig();
 
     // 安装属性钩子
     installPropertyHooks();
