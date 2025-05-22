@@ -1,7 +1,7 @@
-import { getConsoleLogFontSize, getIgnoreUpdateButNotChanged } from '../cookie-monitor/config';
+import { getIgnoreUpdateButNotChanged } from '../cookie-monitor/config';
 import { testDebuggerRules } from '../rules/tester';
-import { genFormatArray, getCodeLocation, now } from '../utils';
 import { getCurrentCookieMap, parseSetCookie } from './parser';
+import logger from '../logger/logger';
 
 /**
  * 这个方法的前缀起到命名空间的作用，等下调用栈追溯赋值cookie的代码时需要用这个名字作为终结标志
@@ -39,20 +39,10 @@ export function onReadCookie(cookieOriginalValue: string, cookieName: string, co
     // 需要触发读取Cookie功能时，取消以下代码的注释
 
     /*
-    const valueStyle = `color: black; background: #4169E1; font-size: ${getConsoleLogFontSize()}px; font-weight: bold;`;
-    const normalStyle = `color: black; background: #ADD8E6; font-size: ${getConsoleLogFontSize()}px;`;
-
-    const message = [
-        normalStyle, now(),
-        normalStyle, "JS Cookie Monitor: ",
-        normalStyle, "read cookie, cookieName = ",
-        valueStyle, `${cookieName}`,
-        normalStyle, ", value = ",
-        valueStyle, `${cookieValue}`,
-        normalStyle, `, code location = ${getCodeLocation()}`
-    ];
-
-    console.log(genFormatArray(message), ...message);
+    logger.custom('#4169E1', 'black', 
+        "read cookie, cookieName = ", cookieName,
+        ", value = ", cookieValue
+    );
 
     testDebuggerRules(cookieOriginalValue, "read", cookieName, cookieValue, null);
     */
@@ -65,26 +55,11 @@ export function onReadCookie(cookieOriginalValue: string, cookieName: string, co
  * @param cookieValue Cookie值
  */
 export function onDeleteCookie(cookieOriginalValue: string, cookieName: string, cookieValue: string | null): void {
-    const valueStyle = `color: black; background: #E50000; font-size: ${getConsoleLogFontSize()}px; font-weight: bold;`;
-    const normalStyle = `color: black; background: #FF6766; font-size: ${getConsoleLogFontSize()}px;`;
-
-    const message = [
-        normalStyle, now(),
-        normalStyle, "JS Cookie Monitor: ",
-        normalStyle, "delete cookie, cookieName = ",
-        valueStyle, `${cookieName}`,
-        ...(() => {
-            if (!cookieValue) {
-                return [];
-            }
-            return [normalStyle, ", value = ",
-                valueStyle, `${cookieValue}`,];
-        })(),
-        normalStyle, `, code location = ${getCodeLocation()}`
-    ];
-
-    console.log(genFormatArray(message), ...message);
-
+    logger.custom('#E50000', 'black', 
+        "delete cookie, cookieName = ", cookieName,
+        ...(cookieValue ? [", value = ", cookieValue] : [])
+    );
+    
     // @ts-ignore - 保持与原JS版本一致的调用方式
     testDebuggerRules(cookieOriginalValue, "delete", cookieName, cookieValue);
 }
@@ -104,31 +79,14 @@ export function onUpdateCookie(cookieOriginalValue: string, cookieName: string, 
         return;
     }
 
-    const valueStyle = `color: black; background: #FE9900; font-size: ${getConsoleLogFontSize()}px; font-weight: bold;`;
-    const normalStyle = `color: black; background: #FFCC00; font-size: ${getConsoleLogFontSize()}px;`;
-
-    const message = [
-        normalStyle, now(),
-        normalStyle, "JS Cookie Monitor: ",
-        normalStyle, "update cookie, cookieName = ",
-        valueStyle, `${cookieName}`,
-        ...(() => {
-            if (cookieValueChanged) {
-                return [normalStyle, `, oldValue = `,
-                    valueStyle, `${oldCookieValue}`,
-                    normalStyle, `, newValue = `,
-                    valueStyle, `${newCookieValue}`];
-            } else {
-                return [normalStyle, `, value = `,
-                    valueStyle, `${newCookieValue}`];
-            }
-        })(),
-        normalStyle, `, valueChanged = `,
-        valueStyle, `${cookieValueChanged}`,
-        normalStyle, `, code location = ${getCodeLocation()}`
-    ];
-
-    console.log(genFormatArray(message), ...message);
+    logger.custom('#FE9900', 'black', 
+        "update cookie, cookieName = ", cookieName,
+        ...(cookieValueChanged 
+            ? [", oldValue = ", oldCookieValue, ", newValue = ", newCookieValue]
+            : [", value = ", newCookieValue]
+        ),
+        ", valueChanged = ", String(cookieValueChanged)
+    );
 
     testDebuggerRules(cookieOriginalValue, "update", cookieName, newCookieValue, cookieValueChanged);
 }
@@ -140,20 +98,10 @@ export function onUpdateCookie(cookieOriginalValue: string, cookieName: string, 
  * @param cookieValue Cookie值
  */
 export function onAddCookie(cookieOriginalValue: string, cookieName: string, cookieValue: string | null): void {
-    const valueStyle = `color: black; background: #669934; font-size: ${getConsoleLogFontSize()}px; font-weight: bold;`;
-    const normalStyle = `color: black; background: #65CC66; font-size: ${getConsoleLogFontSize()}px;`;
-
-    const message = [
-        normalStyle, now(),
-        normalStyle, "JS Cookie Monitor: ",
-        normalStyle, "add cookie, cookieName = ",
-        valueStyle, `${cookieName}`,
-        normalStyle, ", cookieValue = ",
-        valueStyle, `${cookieValue}`,
-        normalStyle, `, code location = ${getCodeLocation()}`
-    ];
-
-    console.log(genFormatArray(message), ...message);
+    logger.custom('#669934', 'black', 
+        "add cookie, cookieName = ", cookieName,
+        ", cookieValue = ", cookieValue
+    );
 
     // @ts-ignore - 保持与原JS版本一致的调用方式
     testDebuggerRules(cookieOriginalValue, "add", cookieName, cookieValue);
