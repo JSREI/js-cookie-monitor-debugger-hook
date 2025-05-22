@@ -8,7 +8,9 @@
   "document": "https://github.com/CC11001100/js-cookie-monitor-debugger-hook",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
-    "watch": "webpack --watch --config webpack.dev.js"
+    "watch": "webpack --watch --config webpack.dev.js",
+    "gen:dev": "node ./scripts/generate-dev-header.js",
+    "build:dev": "npm run build && npm run gen:dev"
   },
   "author": "CC11001100 <CC11001100@qq.com>",
   "license": "MIT",

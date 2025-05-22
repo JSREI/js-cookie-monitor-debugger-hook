@@ -10,6 +10,7 @@
 // @grant        GM_registerMenuCommand
 // @require      file:///Users/cc11001100/github/JSREI/js-cookie-monitor-debugger-hook/dist/index.js
 // ==/UserScript==
+
 (() => {
 
 })()
