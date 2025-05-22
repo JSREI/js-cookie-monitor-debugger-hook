@@ -19,7 +19,6 @@ export interface DebuggerRuleType {
 export interface CustomPropertyDescriptor extends PropertyDescriptor {
     [key: string]: any;
 }
-
 // Cookie事件类型
 export type CookieEventType = 'add' | 'update' | 'delete' | 'read';
 
