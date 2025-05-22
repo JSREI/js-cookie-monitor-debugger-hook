@@ -7,5 +7,5 @@
 // @author       CC11001100
 // @match        *://*/*
 // @run-at       document-start
-// @grant        none
+// @grant        GM_registerMenuCommand
 // ==/UserScript==
