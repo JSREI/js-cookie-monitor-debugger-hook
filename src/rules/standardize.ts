@@ -1,6 +1,6 @@
 import { DebuggerRule } from '../models';
-import { debuggerRules, getConsoleLogFontSize } from '../cookie-monitor/config';
-import { now } from '../utils';
+import { debuggerRules } from '../cookie-monitor/config';
+import logger from '../logger/logger';
 
 /**
  * 将规则整理为标准规则
@@ -60,12 +60,11 @@ export function standardizingRules(): void {
 
     // 处理错误
     if (ruleConfigErrorMessage.length) {
-        const errorMessageStyle = `color: black; background: #FF2121; font-size: ${Math.round(getConsoleLogFontSize() * 1.5)}px; font-weight: bold;`;
-        let errorMessage = now() + "JS Cookie Monitor: 以下Cookie断点规则配置错误，已忽略： \n ";
+        let errorMessage = "以下Cookie断点规则配置错误，已忽略： \n ";
         for (let i = 0; i < ruleConfigErrorMessage.length; i++) {
             errorMessage += `${i + 1}. ${ruleConfigErrorMessage[i]}\n`;
         }
-        console.log("%c%s", errorMessageStyle, errorMessage);
+        logger.error(errorMessage);
     }
 
     // 将新规则添加到规则列表
