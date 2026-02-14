@@ -323,6 +323,20 @@
         }
 
         /**
+         * 安全地解码 URI 组件
+         * @param str
+         * @returns {string}
+         */
+        function safeDecode(str) {
+            try {
+                return decodeURIComponent(str);
+            } catch (e) {
+                // 出错就原样返回，避免 URI malformed
+                return str;
+            }
+        }
+
+        /**
          * 把按照等号=拼接的key、value字符串切分开
          * @param s
          * @returns {{value: string, key: string}}
@@ -332,11 +346,11 @@
             const keyValueArray = (s || "").split("=");
 
             if (keyValueArray.length) {
-                key = decodeURIComponent(keyValueArray[0].trim());
+                key = safeDecode(keyValueArray[0].trim());
             }
 
             if (keyValueArray.length > 1) {
-                value = decodeURIComponent(keyValueArray.slice(1).join("=").trim());
+                value = safeDecode(keyValueArray.slice(1).join("=").trim());
             }
 
             return {
